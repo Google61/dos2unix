@@ -17,9 +17,9 @@ jobs:
         run: git clone git://git.code.sf.net/p/dos2unix/dos2unix
 
       - name: Build with NDK toolchain
-        run: cd dos2unix/dos2unix && sed -i 's/nl_langinfo(CODESET)/"ISO-8859-1"/g' common.c && make CC=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi19-clang ENABLE_NLS= && find . -name "dos2unix" -type f
+        run: cd dos2unix/dos2unix && sed -i 's/nl_langinfo(CODESET)/"ISO-8859-1"/g' common.c && make CC=$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi19-clang ENABLE_NLS=
 
-#      - name: Upload a Build Artifact
-#        uses: actions/upload-artifact@v2.3.1
-#        with:
-#          path: 
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          path: dos2unix/dos2unix/dos2unix
